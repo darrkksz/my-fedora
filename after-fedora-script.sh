@@ -92,7 +92,14 @@ sudo dnf remove gnome-maps gnome-contacts gnome-characters gnome-tour libreoffic
 info "🐱 Installing Kitty terminal..."
 sudo dnf install kitty -y
 
-# --- 13. Zsh + Oh My Zsh ---
+# --- 13. VSCode ---
+info "🔩 Installing VSCode..."
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+sudo dnf check-update
+sudo dnf install code -y
+
+# --- 14. Zsh + Oh My Zsh ---
 info "💻 Installing Zsh and configuring..."
 sudo dnf install -y zsh git curl wget
 
@@ -118,7 +125,7 @@ info "⚙️ Updating ~/.zshrc with plugins and theme..."
 sed -i 's/^plugins=(.*)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
 sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="agnoster"/' ~/.zshrc
 
-# --- 14. Cleaning ---
+# --- 15. Cleaning ---
 info "🧽 Cleaning unused packages..."
 sudo dnf autoremove -y
 sudo dnf clean all
