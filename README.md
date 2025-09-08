@@ -1,1 +1,3 @@
-# my-fedora
+# 🎩 My Fedora Scripts/Files 
+
+📃 This repository is just to archive scripts and things that i use in my Fedora setup, nothing more...
